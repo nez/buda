@@ -12,6 +12,25 @@ BUDA está disponible en `api.datos.gob.mx`
 
 El catálogo de datasets se puede consultar en `http://api.datos.gob.mx/v1/catalog.json`
 
+Por conveniencia, se recomienda instalar `httpie` para interactuar con BUDA, los siguientes ejemplos están escritos contemplando que tienes httpie.
+
+Consultar datasets registrados:
+`http GET api.datos.gob.mx:32771/`
+
+Registrar un nuevo dataset en el manager:
+`http POST api.datos.gob.mx:32771/ format=yaml dataset=@DATASET.bdds`
+
+Borrar un dataset:
+`http DELETE api.datos.gob.mx:32771/a0dcf7b487d319d682c6cb670fb23c11e593d7155dbb9578ccab9ad6fbd77166`
+
+Cargar datos:
+`cat ARCHIVO_CON_DATOS | nc api.datos.gob.mx PORT`
+
+Y finalmente queda publicado y se puede consultar desde el front:
+`http://api.datos.gob.mx/v1/DATASET`
+
+Este es un ejemplo de como hacer consultas:
+`http://api.datos.gob.mx/v1/data-fusion?catalog-dataset-resource.mediaType=Excel`
 
 ### Arquitectura
 
